@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NoForm Project – Nem sablon. Rád szabva.</title>
+  <meta name="description" content="Weboldalak vendéglőknek, kávézóknak, szalonoknak, kis boltoknak és kluboknak. Egy pomázi és egy szegedi alkotó, sablonok nélkül. Kérj árajánlatot két perc alatt.">
+  <link rel="canonical" href="https://noformproject.com/">
+  <meta name="theme-color" content="#F7F6F3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#15161A" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="light dark">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="hu_HU">
+  <meta property="og:site_name" content="NoForm Project">
+  <meta property="og:title" content="NoForm Project – Nem sablon. Rád szabva.">
+  <meta property="og:description" content="Weboldalak kisvállalkozásoknak Pomázról és Szegedről, sablonok nélkül.">
+  <meta property="og:url" content="https://noformproject.com/">
+  <meta property="og:image" content="https://noformproject.com/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Sacramento&display=swap">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- A téma beállítása még a rajzolás előtt, hogy ne villanjon -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('noform-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+      document.documentElement.classList.add('js');
+    })();
+  </script>
+  <script src="config.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#tartalom">Ugrás a tartalomra</a>
+
+  <!-- Újrahasznosított formák: a logó vonala, a puha folt és a fotók maszkja -->
+  <svg class="defs" aria-hidden="true" focusable="false" width="0" height="0">
+    <defs>
+      <symbol id="logo-sig" viewBox="20 0 1900 900">
+        <path pathLength="1" d="M60,482 C92,500 122,470 150,432 C220,335 300,165 370,120 C420,90 452,126 442,176 C426,282 372,420 302,524 C294,536 300,537 310,524 C390,420 500,300 610,255 C655,238 678,268 652,296 C628,320 588,332 548,336 C470,344 428,396 432,452 C437,512 490,548 545,541 C600,533 624,494 620,452 C680,420 780,368 862,318 C920,272 1000,150 990,82 C982,26 930,6 896,26 C842,60 815,170 812,262 C808,420 790,620 760,770 C742,860 690,890 640,880 C580,868 495,790 492,650 C490,540 590,440 720,422 C830,406 940,430 960,505 C972,560 935,603 898,598 M1062,298 C1010,282 935,312 922,382 C910,452 962,496 1018,492 C1080,488 1108,430 1094,370 C1086,330 1060,305 1030,300 C1060,296 1088,296 1108,304 C1155,345 1206,412 1238,462 C1250,480 1232,482 1236,462 C1250,405 1275,335 1305,322 C1330,312 1350,325 1362,345 C1374,370 1396,400 1412,420 C1440,330 1480,205 1515,203 C1556,201 1548,330 1528,410 C1580,320 1660,242 1703,246 C1735,250 1705,360 1708,440 C1712,490 1770,500 1900,495"/>
+      </symbol>
+      <symbol id="blob" viewBox="0 0 120 120">
+        <path d="M60.0,11.0 C74.6,10.6 90.1,12.7 97.5,22.5 C104.9,32.3 97.3,45.3 97.0,60.0 C96.7,74.7 103.5,87.7 96.1,96.1 C88.7,104.5 74.8,101.6 60.0,102.0 C45.2,102.4 28.8,106.6 21.8,98.2 C14.8,89.8 24.4,74.7 25.0,60.0 C25.6,45.3 17.6,34.4 24.6,24.6 C31.6,14.8 45.4,11.4 60.0,11.0Z"/>
+      </symbol>
+      <!-- A folt a 120×120-as dobozban kb. 15–105 között van: kinagyítjuk, hogy kitöltse a keretet -->
+      <clipPath id="clip-blob" clipPathUnits="objectBoundingBox">
+        <path transform="scale(0.01087 0.01042) translate(-14 -10)" d="M60.0,11.0 C74.6,10.6 90.1,12.7 97.5,22.5 C104.9,32.3 97.3,45.3 97.0,60.0 C96.7,74.7 103.5,87.7 96.1,96.1 C88.7,104.5 74.8,101.6 60.0,102.0 C45.2,102.4 28.8,106.6 21.8,98.2 C14.8,89.8 24.4,74.7 25.0,60.0 C25.6,45.3 17.6,34.4 24.6,24.6 C31.6,14.8 45.4,11.4 60.0,11.0Z"/>
+      </clipPath>
+    </defs>
+  </svg>
+
+  <!-- ============ FEJLÉC ============ -->
+  <header class="site-header" id="top">
+    <a class="logo" href="#top" aria-label="NoForm Project – vissza az oldal tetejére">
+      <svg class="logo-svg" viewBox="20 0 1900 900" aria-hidden="true" focusable="false"><use href="#logo-sig" x="20" y="0" width="1900" height="900"/><text class="logo-project" x="1010" y="680">PROJECT</text></svg>
+    </a>
+
+    <nav class="site-nav" id="site-nav" aria-label="Fő menü">
+      <ul>
+        <li><a href="#munkaink">Munkáink</a></li>
+        <li><a href="#folyamat">Hogyan dolgozunk</a></li>
+        <li><a href="#arak">Árak</a></li>
+        <li><a href="#rolunk">Kik vagyunk</a></li>
+        <li><a href="#gyik">Kérdések</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <button class="theme-toggle" type="button" aria-label="Sötét téma" aria-pressed="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle class="tt-sun" cx="12" cy="12" r="5"/><path class="tt-moon" d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
+      </button>
+      <a class="btn btn--primary btn--small header-cta" href="#ajanlat">Ajánlatot kérek</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="menu-toggle-label">Menü</span>
+        <span class="menu-toggle-icon" aria-hidden="true"><i></i><i></i></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="tartalom">
+
+    <!-- ============ 1. NYITÁS ============ -->
+    <section class="hero" aria-labelledby="hero-title">
+      <h1 class="hero-title" id="hero-title" aria-label="Nem sablon. Rád szabva.">
+        <span class="ht-line" aria-hidden="true"><span class="ht-word"><span class="ch" style="--i:0">N</span><span class="ch" style="--i:1">e</span><span class="ch" style="--i:2">m</span></span> <span class="ht-word strike"><span class="ch" style="--i:3">s</span><span class="ch" style="--i:4">a</span><span class="ch" style="--i:5">b</span><span class="ch" style="--i:6">l</span><span class="ch" style="--i:7">o</span><span class="ch" style="--i:8">n</span><svg class="strike-line" viewBox="0 0 300 36" preserveAspectRatio="none"><path pathLength="1" d="M6,25 C40,19 72,23 106,18 C140,13 170,20 206,15 C238,11 264,14 294,8"/></svg></span><span class="ch" style="--i:9">.</span></span>
+        <span class="ht-line ht-line--2" aria-hidden="true"><span class="hero-blob"><svg viewBox="0 0 120 120"><path d="M60.0,11.0 C74.6,10.6 90.1,12.7 97.5,22.5 C104.9,32.3 97.3,45.3 97.0,60.0 C96.7,74.7 103.5,87.7 96.1,96.1 C88.7,104.5 74.8,101.6 60.0,102.0 C45.2,102.4 28.8,106.6 21.8,98.2 C14.8,89.8 24.4,74.7 25.0,60.0 C25.6,45.3 17.6,34.4 24.6,24.6 C31.6,14.8 45.4,11.4 60.0,11.0Z"><animate attributeName="d" dur="20s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.25;0.5;0.75;1" keySplines="0.45 0 0.55 1;0.45 0 0.55 1;0.45 0 0.55 1;0.45 0 0.55 1" values="M60.0,11.0 C74.6,10.6 90.1,12.7 97.5,22.5 C104.9,32.3 97.3,45.3 97.0,60.0 C96.7,74.7 103.5,87.7 96.1,96.1 C88.7,104.5 74.8,101.6 60.0,102.0 C45.2,102.4 28.8,106.6 21.8,98.2 C14.8,89.8 24.4,74.7 25.0,60.0 C25.6,45.3 17.6,34.4 24.6,24.6 C31.6,14.8 45.4,11.4 60.0,11.0Z;M58,14 C74,9 92,9 100,20 C108,31 101,46 100,61 C99,76 106,88 97,98 C88,108 73,99 58,100 C43,101 30,108 22,99 C14,90 21,75 22,60 C23,45 14,33 22,23 C30,13 42,19 58,14Z;M62,9 C77,12 88,16 95,25 C102,34 104,47 102,61 C100,75 98,86 92,94 C86,102 76,106 62,104 C48,102 33,103 25,95 C17,87 19,73 20,59 C21,45 22,35 28,26 C34,17 47,6 62,9Z;M60,13 C72,12 86,15 94,24 C102,33 94,46 95,60 C96,74 108,85 100,95 C92,105 75,98 60,99 C45,100 26,102 19,94 C12,86 27,73 27,60 C27,47 13,36 20,26 C27,16 48,14 60,13Z;M60.0,11.0 C74.6,10.6 90.1,12.7 97.5,22.5 C104.9,32.3 97.3,45.3 97.0,60.0 C96.7,74.7 103.5,87.7 96.1,96.1 C88.7,104.5 74.8,101.6 60.0,102.0 C45.2,102.4 28.8,106.6 21.8,98.2 C14.8,89.8 24.4,74.7 25.0,60.0 C25.6,45.3 17.6,34.4 24.6,24.6 C31.6,14.8 45.4,11.4 60.0,11.0Z"/></path></svg></span><span class="ht-script">Rád szabva.</span></span>
+      </h1>
+
+      <div class="hero-bottom">
+        <p class="hero-lead">Egy pomázi és egy szegedi alkotó vagyunk. Weboldalt készítünk vendéglőknek, kávézóknak, szalonoknak, kis boltoknak és kluboknak. Mindegyiket az elejétől, neked rajzoljuk meg.</p>
+        <div class="hero-actions">
+          <a class="btn btn--primary magnetic" href="#ajanlat">Árajánlatot kérek</a>
+          <a class="btn btn--outline magnetic" href="#munkaink">Mutasd a munkáitokat</a>
+        </div>
+      </div>
+
+      <p class="sticker sticker--hero" aria-hidden="true">Pomáz<br>&amp; Szeged</p>
+      <span class="hero-dot" aria-hidden="true"></span>
+    </section>
+
+    <!-- Szalag a vállalkozástípusokkal -->
+    <div class="ribbon">
+      <p class="sr-only">Kiknek dolgozunk: vendéglőknek, kávézóknak, szalonoknak, kluboknak, kis boltoknak, pékségeknek, fodrászoknak, rendezvényeknek.</p>
+      <div class="ribbon-track" aria-hidden="true">
+        <ul class="ribbon-list">
+          <li>Vendéglők</li><li>Kávézók</li><li>Szalonok</li><li>Klubok</li><li>Kis boltok</li><li>Pékségek</li><li>Fodrászok</li><li>Rendezvények</li>
+        </ul>
+        <ul class="ribbon-list">
+          <li>Vendéglők</li><li>Kávézók</li><li>Szalonok</li><li>Klubok</li><li>Kis boltok</li><li>Pékségek</li><li>Fodrászok</li><li>Rendezvények</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ============ 2. MIÉRT NEM SABLON? ============ -->
+    <section class="why" id="miert" aria-labelledby="why-title">
+      <div class="why-text">
+        <h2 class="h2" id="why-title" data-lines>Miért nem sablon?</h2>
+        <p data-lines>A legtöbb weboldal ugyanabból a pár sablonból készül. Ezért hasonlít minden fodrász oldala minden pékségére.</p>
+        <p data-lines>Mi minden oldalt a te helyedről, a te vendégeidnek rajzolunk meg. Húzd el a csúszkát, és nézd meg a különbséget.</p>
+      </div>
+
+      <figure class="ba">
+        <div class="ba-frame" data-ba style="--pos:50">
+          <!-- Jobb oldal: NoForm-stílus -->
+          <div class="ba-layer ba-nf" aria-hidden="true">
+            <div class="nf-nav"><span class="nf-logo">Sarok</span><span class="nf-chip">Reggel 7-től</span></div>
+            <div class="nf-hero">
+              <span class="nf-blob"><svg viewBox="0 0 120 120"><use href="#blob" width="120" height="120"/></svg></span>
+              <p class="nf-title">Kávé, pite,<br>és egy jó sarok.</p>
+              <p class="nf-sub">Ma a pultban: meggyes pite, túrós batyu, kakaós csiga.</p>
+              <span class="nf-btn">Asztalt foglalok</span>
+            </div>
+            <div class="nf-row">
+              <span class="nf-card nf-card--a">Itt reggeliz&shy;nek a szom&shy;szédok</span>
+              <span class="nf-card nf-card--b">Térkép</span>
+              <span class="nf-card nf-card--c">H–P 7–18<br>Szo 8–14</span>
+            </div>
+          </div>
+          <!-- Bal oldal: a "sablon" -->
+          <div class="ba-layer ba-tpl" aria-hidden="true">
+            <div class="tpl-nav"><span class="tpl-logo">LOGÓ</span><span class="tpl-links"><i></i><i></i><i></i><i></i></span></div>
+            <div class="tpl-hero">
+              <span class="tpl-img"></span>
+              <p class="tpl-title">Üdvözöljük weboldalunkon!</p>
+              <p class="tpl-sub">Minőség és megbízhatóság egy helyen.</p>
+              <span class="tpl-btn">Tudjon meg többet</span>
+            </div>
+            <div class="tpl-row">
+              <span class="tpl-card"><i></i>Szolgáltatások</span>
+              <span class="tpl-card"><i></i>Rólunk</span>
+              <span class="tpl-card"><i></i>Kapcsolat</span>
+            </div>
+          </div>
+          <span class="ba-label ba-label--l" aria-hidden="true">Sablon</span>
+          <span class="ba-label ba-label--r" aria-hidden="true">NoForm</span>
+          <div class="ba-handle" role="slider" tabindex="0"
+               aria-label="Összehasonlítás: sablon és egyedi oldal"
+               aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"
+               aria-valuetext="Félúton: bal oldalt a sablon, jobb oldalt a NoForm-változat">
+            <span class="ba-knob" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6 3 12l6 6M15 6l6 6-6 6"/></svg></span>
+          </div>
+        </div>
+        <figcaption>Egy kitalált kávézó kezdőoldala kétféleképpen. Balra a sablon: szürke kép, három egyforma doboz, „Tudjon meg többet”. Jobbra ugyanez a kávézóra szabva. A csúszkát egérrel, ujjal vagy a nyilakkal húzhatod.</figcaption>
+      </figure>
+    </section>
+
+    <!-- ============ 3. MUNKÁINK ============ -->
+    <section class="works" id="munkaink" aria-labelledby="works-title">
+      <div class="works-pin">
+        <div class="works-head">
+          <h2 class="h2" id="works-title" data-lines>Munkáink</h2>
+          <p data-lines>Mindegyik más, mert mindegyik gazdája más.</p>
+          <p class="works-hint" aria-hidden="true"><span class="hint-desktop">Görgess tovább, oldalra visz</span><span class="hint-touch">Húzd oldalra</span> <span class="hint-arrow">→</span></p>
+        </div>
+
+        <!--
+          FONTOS: ide csak olyan munka kerülhet, amelynek megmutatásához
+          a tulajdonos (az ügyfél) hozzájárult. Kép: assets/munkak/…, 1600×1000 px körül, .webp vagy .jpg.
+          A <div class="work-shot is-placeholder"> helyére ez kerül:
+          <img src="assets/munkak/nev.webp" alt="A … weboldalának kezdőlapja" width="1600" height="1000" loading="lazy">
+        -->
+        <div class="works-track" tabindex="0" role="region" aria-label="Munkáink, oldalra görgethető lista">
+          <article class="work" style="--tilt:-2.2deg">
+            <div class="browser">
+              <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>[IDE JÖN: domain]</span></div>
+              <div class="work-shot is-placeholder"><span>[IDE JÖN: munka képe]</span></div>
+            </div>
+            <h3 class="work-title">[IDE JÖN: munka neve]</h3>
+            <p class="work-desc">[IDE JÖN: 1 mondat a munkáról]</p>
+          </article>
+          <article class="work work--b" style="--tilt:1.6deg">
+            <div class="browser">
+              <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>[IDE JÖN: domain]</span></div>
+              <div class="work-shot is-placeholder"><span>[IDE JÖN: munka képe]</span></div>
+            </div>
+            <h3 class="work-title">[IDE JÖN: munka neve]</h3>
+            <p class="work-desc">[IDE JÖN: 1 mondat a munkáról]</p>
+          </article>
+          <article class="work work--c" style="--tilt:-1deg">
+            <div class="browser">
+              <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>[IDE JÖN: domain]</span></div>
+              <div class="work-shot is-placeholder"><span>[IDE JÖN: munka képe]</span></div>
+            </div>
+            <h3 class="work-title">[IDE JÖN: munka neve]</h3>
+            <p class="work-desc">[IDE JÖN: 1 mondat a munkáról]</p>
+          </article>
+          <a class="work work--next" href="#ajanlat" style="--tilt:2.4deg">
+            <span class="work-next-title">A te oldalad<br>jöhet ide.</span>
+            <span class="work-next-cta">Árajánlatot kérek <span aria-hidden="true">→</span></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 4. HOGYAN DOLGOZUNK ============ -->
+    <section class="process" id="folyamat" aria-labelledby="process-title">
+      <div class="process-head">
+        <h2 class="h2" id="process-title" data-lines>Hogyan dolgozunk</h2>
+        <p data-lines>Négy lépés. Az első semmibe sem kerül.</p>
+      </div>
+      <div class="process-body">
+        <svg class="process-line" aria-hidden="true" focusable="false"><path class="process-path-bg"/><path class="process-path" pathLength="1"/></svg>
+        <ol class="steps">
+          <li class="step step--1">
+            <span class="step-mark step-mark--circle" aria-hidden="true"></span>
+            <span class="step-num" aria-hidden="true">1</span>
+            <div class="step-body">
+              <h3>Beszélgetünk <span class="tag tag--butter">ingyenes</span></h3>
+              <p>Elmondod, mivel foglalkozol, kiknek szól az oldal, mi tetszik és mi nem. Ez nem kerül semmibe, és nem kötelez semmire.</p>
+            </div>
+          </li>
+          <li class="step step--2">
+            <span class="step-mark step-mark--blob" aria-hidden="true"><svg viewBox="15 10 90 94"><use href="#blob" width="120" height="120"/></svg></span>
+            <span class="step-num" aria-hidden="true">2</span>
+            <div class="step-body">
+              <h3>Készítünk egy mintát</h3>
+              <p>Megmutatjuk, hogyan nézne ki a te oldalad. Nem sablonból válogatunk: a te helyedre rajzoljuk.</p>
+            </div>
+          </li>
+          <li class="step step--3">
+            <span class="step-mark step-mark--square" aria-hidden="true"></span>
+            <span class="step-num" aria-hidden="true">3</span>
+            <div class="step-body">
+              <h3>Finomítjuk együtt</h3>
+              <p>Megmondod, mit változtatnál, és átírjuk. <span class="ph">[IDE JÖN: hány javítási kör fér bele az árba]</span></p>
+            </div>
+          </li>
+          <li class="step step--4">
+            <span class="step-mark step-mark--pill" aria-hidden="true"></span>
+            <span class="step-num" aria-hidden="true">4</span>
+            <div class="step-body">
+              <h3>Élesítjük, és ott maradunk, ha kell</h3>
+              <p>Felkerül a netre, a saját címeden. Ha később kérdésed van, vagy változtatnál rajta, szólsz, és segítünk.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ 5. CSOMAGOK ÉS ÁRAK ============ -->
+    <section class="pricing" id="arak" aria-labelledby="pricing-title">
+      <div class="pricing-head">
+        <h2 class="h2" id="pricing-title" data-lines>Csomagok és árak</h2>
+        <p data-lines>Előre tudod, mennyibe kerül. Ha valami nem fér bele egyikbe sem, az Egyedi a tiéd.</p>
+      </div>
+      <!-- A kártyák tartalma a config.js-ből jön (script.js tölti fel) -->
+      <div class="plans" id="plans"></div>
+      <p class="plans-monthly" id="plans-monthly"></p>
+    </section>
+
+    <!-- ============ 6. ÁRAJÁNLATKÉRŐ ============ -->
+    <section class="quote" id="ajanlat" aria-labelledby="quote-title">
+      <div class="quote-intro">
+        <h2 class="h2" id="quote-title" tabindex="-1">Kérj árajánlatot</h2>
+        <p>Öt rövid kérdés. A végén látod, nagyjából mennyivel számolj, és mi hamarosan jelentkezünk.</p>
+        <p class="quote-direct">Inkább beszélnél?<br>
+          <a class="contact-link" data-contact="email" href="mailto:design@noformproject.com">design@noformproject.com</a><br>
+          <a class="contact-link" data-contact="phone" href="tel:+36302699908">+36 30 269 9908</a>
+        </p>
+      </div>
+
+      <div class="quiz" data-quiz>
+        <!--
+          Netlify Forms: a form neve "arajanlat". A Netlify a feltöltéskor ebből a HTML-ből
+          ismeri fel a mezőket, ezért a rejtett mezőknek itt kell lenniük.
+          A script.js fetch-csel küldi el; JavaScript nélkül a sima küldés is működik.
+        -->
+        <form class="quiz-form" name="arajanlat" method="POST" action="/koszonjuk.html" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+          <input type="hidden" name="form-name" value="arajanlat">
+          <input type="hidden" name="csomag" value="">
+          <input type="hidden" name="extrak" value="">
+          <input type="hidden" name="becsult_ar" value="">
+          <p class="hp" aria-hidden="true"><label>Ezt hagyd üresen: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+
+          <div class="quiz-top">
+            <p class="quiz-progress" aria-live="polite"><span class="quiz-count">1. kérdés az 5-ből</span></p>
+            <ol class="quiz-dots" aria-hidden="true"><li></li><li></li><li></li><li></li><li></li></ol>
+          </div>
+
+          <div class="quiz-steps">
+            <!-- 1. lépés -->
+            <fieldset class="quiz-step" data-step="1">
+              <legend class="quiz-q">Mivel foglalkozol?</legend>
+              <p class="quiz-picked" hidden></p>
+              <div class="tiles">
+                <label class="tile tile--a"><input type="radio" name="tevekenyseg" value="Étterem / kávézó"><span>Étterem, kávézó</span></label>
+                <label class="tile tile--b"><input type="radio" name="tevekenyseg" value="Szépség / egészség"><span>Szépség, egészség</span></label>
+                <label class="tile tile--c"><input type="radio" name="tevekenyseg" value="Bolt"><span>Bolt</span></label>
+                <label class="tile tile--d"><input type="radio" name="tevekenyseg" value="Klub / rendezvény"><span>Klub, rendezvény</span></label>
+                <label class="tile tile--e"><input type="radio" name="tevekenyseg" value="Egyéb"><span>Valami más</span></label>
+              </div>
+              <p class="field-error" id="err-tevekenyseg" hidden></p>
+            </fieldset>
+
+            <!-- 2. lépés (a csomagokat a script.js tölti be a config.js-ből) -->
+            <fieldset class="quiz-step" data-step="2">
+              <legend class="quiz-q">Melyik csomag érdekel?</legend>
+              <div class="tiles tiles--plans" id="quiz-plans"></div>
+              <p class="field-error" id="err-csomag" hidden></p>
+            </fieldset>
+
+            <!-- 3. lépés -->
+            <fieldset class="quiz-step" data-step="3">
+              <legend class="quiz-q">Mi kellene még?</legend>
+              <p class="quiz-help">Jelöld be, ami jól jönne. Ha nem tudod, ugord át nyugodtan.</p>
+              <div class="checks" id="quiz-extras"></div>
+            </fieldset>
+
+            <!-- 4. lépés -->
+            <fieldset class="quiz-step" data-step="4">
+              <legend class="quiz-q">Van már weboldalad vagy Facebook-oldalad?</legend>
+              <div class="field">
+                <label for="f-link">Ha van, másold be a linkjét <span class="opt">(nem kötelező)</span></label>
+                <input id="f-link" name="meglevo_oldal" type="text" inputmode="url" autocomplete="url" placeholder="pl. facebook.com/akavezod" aria-describedby="err-link">
+                <p class="field-error" id="err-link" hidden></p>
+              </div>
+            </fieldset>
+
+            <!-- 5. lépés -->
+            <fieldset class="quiz-step" data-step="5">
+              <legend class="quiz-q">Hogyan érünk el?</legend>
+              <div class="field">
+                <label for="f-name">Neved</label>
+                <input id="f-name" name="nev" type="text" autocomplete="name" required aria-describedby="err-name">
+                <p class="field-error" id="err-name" hidden></p>
+              </div>
+              <div class="field">
+                <label for="f-email">E-mail-címed</label>
+                <input id="f-email" name="email" type="email" autocomplete="email" required aria-describedby="err-email">
+                <p class="field-error" id="err-email" hidden></p>
+              </div>
+              <div class="field">
+                <label for="f-phone">Telefonszámod <span class="opt">(nem kötelező)</span></label>
+                <input id="f-phone" name="telefon" type="tel" autocomplete="tel" aria-describedby="err-phone">
+                <p class="field-error" id="err-phone" hidden></p>
+              </div>
+              <div class="field">
+                <label for="f-msg">Üzenet <span class="opt">(nem kötelező)</span></label>
+                <textarea id="f-msg" name="uzenet" rows="4" placeholder="Bármi, amit jó, ha tudunk előre."></textarea>
+              </div>
+              <p class="quiz-privacy">Az adataidat csak arra használjuk, hogy válaszoljunk. <span class="ph">[IDE JÖN: link az adatkezelési tájékoztatóhoz]</span></p>
+            </fieldset>
+          </div>
+
+          <p class="form-error" role="alert" hidden></p>
+
+          <div class="quiz-nav">
+            <button type="button" class="btn btn--ghost quiz-back">Vissza</button>
+            <button type="button" class="btn btn--earth quiz-next">Tovább</button>
+            <button type="submit" class="btn btn--primary quiz-submit">Elküldöm</button>
+          </div>
+
+          <div class="estimate" aria-live="polite">
+            <p class="estimate-value"><span class="estimate-label">Becsült ár:</span> <strong class="estimate-range">válassz csomagot</strong></p>
+            <p class="estimate-note">A pontos árat a beszélgetés után mondjuk meg.</p>
+          </div>
+        </form>
+
+        <div class="quiz-done" hidden tabindex="-1">
+          <span class="done-blob" aria-hidden="true"><svg viewBox="0 0 120 120"><use href="#blob" width="120" height="120"/><g class="face-eyes"><ellipse class="face-eye" cx="47" cy="52" rx="4.5" ry="6"/><ellipse class="face-eye" cx="73" cy="52" rx="4.5" ry="6"/></g><ellipse class="face-cheek" cx="38" cy="66" rx="6.5" ry="3.8"/><ellipse class="face-cheek" cx="82" cy="66" rx="6.5" ry="3.8"/><path class="face-mouth" d="M51,67 Q60,77 69,67"/></svg></span>
+          <h3 class="done-title">Megkaptuk, köszönjük!</h3>
+          <p class="done-text">Maximum 2 munkanapon belül válaszolunk a megadott e-mail-címre.</p>
+          <button type="button" class="btn btn--outline quiz-restart">Új ajánlatkérés</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 7. KIK VAGYUNK ============ -->
+    <section class="about" id="rolunk" aria-labelledby="about-title">
+      <h2 class="h2 about-title" id="about-title" data-lines>Kik vagyunk</h2>
+      <p class="about-quote" data-lines>Két ember, két erősség: az egyik megépíti, a másik gondoskodik rólad.</p>
+
+      <div class="person person--balint">
+        <div class="photo photo--arch">
+          <img src="kepek/balint-web.jpg" alt="Dér Bálint portréja, mögötte a Duna és a Parlament" width="640" height="800" loading="lazy">
+        </div>
+        <h3 class="person-name">Dér Bálint</h3>
+        <p class="person-role">Tervez és fejleszt.</p>
+        <p class="person-bio">Én tervezem és építem meg az oldalakat. Szeretem, ha egy weboldal pont olyan, mint a hely, amiről szól, és nem úgy néz ki, mint a többi ezer.</p>
+      </div>
+
+      <div class="person person--lotti">
+        <div class="photo photo--blob">
+          <img src="kepek/manka-web.jpg" alt="Szabó Lotti Manka portréja egy őszi parkban" width="800" height="800" loading="lazy">
+        </div>
+        <h3 class="person-name">Szabó Lotti Manka</h3>
+        <p class="person-role">Veled tartja a kapcsolatot, és viszi a marketinget.</p>
+        <p class="person-bio">Én vagyok az, akivel beszélni fogsz. Meghallgatom, mire van szükséged, és figyelek rá, hogy a végén pont azt kapd, amit elképzeltél.</p>
+      </div>
+
+      <p class="about-place">Bálint <strong>Pomázról</strong>, Manka <strong>Szegedről</strong> dolgozik. Pomáz környékén (Szentendre, Pilis, Dunakanyar) és Szegeden személyesen is találkozunk, máshol online.</p>
+    </section>
+
+    <!-- ============ 8. GYIK ============ -->
+    <section class="faq" id="gyik" aria-labelledby="faq-title">
+      <div class="faq-head">
+        <h2 class="h2" id="faq-title" data-lines>Kérdések, amiket gyakran kapunk</h2>
+        <p>Ha a tiéd nincs itt, írj nyugodtan: <a class="contact-link" data-contact="email" href="mailto:design@noformproject.com">design@noformproject.com</a></p>
+      </div>
+      <div class="faq-list">
+        <details>
+          <summary>Mennyi idő alatt készül el?</summary>
+          <div class="faq-a"><p>Egy Egyoldalas általában 1–2 hét, az Egyoldalas + szerkesztés 2–3 hét, egy Egyedi oldal 3–6 hét. Leginkább azon múlik, mikor kapjuk meg tőled a szövegeket és a képeket.</p></div>
+        </details>
+        <details>
+          <summary>Mi kell tőlem hozzá?</summary>
+          <div class="faq-a"><p>Pár mondat arról, mivel foglalkozol, a nyitvatartás, az elérhetőségek, és ha van, néhány jó fotó. Ha valami nincs meg, megbeszéljük, hogyan pótoljuk.</p></div>
+        </details>
+        <details>
+          <summary>Át tudom írni később?</summary>
+          <div class="faq-a"><p>Az „Egyoldalas + szerkesztés” csomagnál igen: egy egyszerű felületen te magad írod át a szövegeket, árakat, nyitvatartást és képeket. A sima Egyoldalasnál szólsz, és mi átírjuk. Ha kéred a havi karbantartást, a kisebb módosítások benne vannak.</p></div>
+        </details>
+        <details>
+          <summary>Mi az a domain és tárhely?</summary>
+          <div class="faq-a"><p>A domain a weboldalad címe, például noformproject.com. A tárhely az a hely, ahol az oldalad fájljai vannak, hogy bárki megnyithassa. Mindkettőért évente kell fizetni. Egy .hu domain nagyjából évi 3–6 ezer forint, egy ilyen oldal tárhelye pedig sokszor ingyenes vagy pár ezer forint évente. Ha kéred, ezt is mi intézzük.</p></div>
+        </details>
+        <details>
+          <summary>Mi van, ha nem tetszik a minta?</summary>
+          <div class="faq-a"><p>Elmondod, mi nem tetszik, és átdolgozzuk. Pont ezért készítünk először mintát: hogy időben kiderüljön.</p></div>
+        </details>
+        <details>
+          <summary>Csak Pomáz és Szeged környékén dolgoztok?</summary>
+          <div class="faq-a"><p>Nem. Pomáz környékén (Szentendre, Pilis, Dunakanyar) és Szegeden személyesen is szívesen találkozunk, de online bárhol az országban dolgozunk.</p></div>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ 9. LÁBLÉC ============ -->
+  <footer class="site-footer">
+    <div class="footer-cta">
+      <p class="footer-big">Beszél&shy;jünk?</p>
+      <a class="btn btn--primary btn--big magnetic" href="#ajanlat">Árajánlatot kérek</a>
+    </div>
+
+    <div class="footer-grid">
+      <div class="footer-logo">
+        <p class="logo logo--footer" role="img" aria-label="NoForm Project">
+          <svg class="logo-svg" viewBox="20 0 1900 900" aria-hidden="true" focusable="false"><use href="#logo-sig" x="20" y="0" width="1900" height="900"/><text class="logo-project" x="1010" y="680">PROJECT</text></svg>
+        </p>
+        <p>Nem sablon. Rád szabva.</p>
+      </div>
+      <div class="footer-contact">
+        <h2 class="footer-h">Elérhetőség</h2>
+        <p><a class="contact-link" data-contact="email" href="mailto:design@noformproject.com">design@noformproject.com</a></p>
+        <p><a class="contact-link" data-contact="phone" href="tel:+36302699908">+36 30 269 9908</a></p>
+        <p>Pomáz és Szeged, online bárhol</p>
+      </div>
+      <div class="footer-legal">
+        <h2 class="footer-h">Impresszum</h2>
+        <p>A NoForm Project a <span data-company="name">[Cég neve]</span> szolgáltatása.</p>
+        <p data-company="details"><span class="ph">[IDE JÖN: cégnév, székhely, adószám, cégjegyzékszám]</span></p>
+        <p><span class="ph">[IDE JÖN: link az adatkezelési tájékoztatóhoz]</span></p>
+      </div>
+    </div>
+    <p class="footer-bottom">© <span data-year>2026</span> NoForm Project</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,15 @@
+# NoForm Project – Netlify beállítások
+# Nincs build lépés: a mappa tartalma egy az egyben kikerül.
+[build]
+  publish = "."
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
